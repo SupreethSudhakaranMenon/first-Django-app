@@ -2,7 +2,7 @@
 
 from django.contrib import admin
 
-from .models import Choice, Question
+from .models import Choice, Question, Feature
 
 class ChoiceInline(admin.TabularInline):
     model = Choice
@@ -20,7 +20,13 @@ class QuestionAdmin(admin.ModelAdmin):
 
     list_filter = ['pub_date']
 
+class FeatureAdmin(admin.ModelAdmin):
+
+    list_display = ('feature_text')
+
 
 admin.site.register(Question, QuestionAdmin)
 
 admin.site.register(Choice) 
+
+admin.site.register(Feature)
